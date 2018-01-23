@@ -27,7 +27,7 @@ public class UserController {
 
     /**
      * to see the someone's details by userid
-     * @param id
+     * @param id: the id of this user
      * @return
      */
     @RequestMapping(value = "/view/{id}")
