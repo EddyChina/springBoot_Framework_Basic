@@ -1,16 +1,18 @@
-package com.practice.controller;
+package com.xiangchi.controller;
 
-import java.util.List;
-
+import com.github.pagehelper.PageInfo;
+import com.xiangchi.model.User;
+import com.xiangchi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.pagehelper.PageInfo;
-import com.practice.model.User;
-import com.practice.service.UserService;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/user")
@@ -32,7 +34,13 @@ public class UserController {
      */
     @RequestMapping(value = "/view/{id}")
     public User getUserById(@PathVariable Integer id){
-    	User user=userService.getUserById(id);
+    	User user = new User();
+        user.setId(id);
+        user.setName("xiangchi");
+        user.setAge("32");
+        user.setPage(2);
+        user.setRows(2);
+        user.setPassword("fan");
     	return user;
     }
     
@@ -48,10 +56,11 @@ public class UserController {
     @RequestMapping(value="/add")
     public void addUser(){
     	User user=new User();
-    	user.setId(7);
-    	user.setName("dev1");
+    	int id = new Random().nextInt();
+    	user.setId(id);
+    	user.setName("N" + id);
     	user.setAge("12");
-    	user.setPassword("123456");
+    	user.setPassword("P" + id);
     	userService.addUser(user);
     }
     
@@ -69,6 +78,6 @@ public class UserController {
     	user.setName(name);
     	userService.updateUser(user);
     }
-   
+
 }
 

@@ -1,4 +1,4 @@
-package com.practice.conf;
+package com.xiangchi.conf;
 
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
@@ -17,9 +17,9 @@ public class MyBatisMapperScannerConfig {
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage("com.practice.mapper");
+        mapperScannerConfigurer.setBasePackage("com.xiangchi.mapper");
         Properties properties = new Properties();
-        properties.setProperty("mappers", "com.practice.util.MyMapper");
+        properties.setProperty("mappers", "com.xiangchi.util.MyMapper");
         properties.setProperty("notEmpty", "false");
         properties.setProperty("IDENTITY", "MYSQL");
         mapperScannerConfigurer.setProperties(properties);

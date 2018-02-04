@@ -1,4 +1,4 @@
-package com.practice.model;
+package com.xiangchi.model;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

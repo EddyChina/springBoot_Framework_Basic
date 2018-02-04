@@ -1,4 +1,4 @@
-package com.practice.util;
+package com.xiangchi.util;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;

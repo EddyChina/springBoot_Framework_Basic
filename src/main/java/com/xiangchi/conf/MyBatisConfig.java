@@ -1,11 +1,12 @@
-package com.practice.conf;
+package com.xiangchi.conf;
 
-import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInterceptor;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -23,16 +24,18 @@ import java.util.Properties;
 public class MyBatisConfig implements TransactionManagementConfigurer {
 
 	@Autowired
-	DataSource dataSource;
+    @Qualifier("dataSource")
+    DataSource dataSource;
 
 	@Bean(name = "sqlSessionFactory")
 	public SqlSessionFactory sqlSessionFactoryBean() {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
-		bean.setTypeAliasesPackage("com.practice.model");
+		bean.setTypeAliasesPackage("com.xiangchi.model");
 
 		// 分页插件
-		PageHelper pageHelper = new PageHelper();
+		PageInterceptor pageHelper = new PageInterceptor();
+
 		Properties properties = new Properties();
 		properties.setProperty("reasonable", "true");
 		properties.setProperty("supportMethodsArguments", "true");

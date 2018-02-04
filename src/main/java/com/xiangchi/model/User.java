@@ -1,6 +1,4 @@
-package com.practice.model;
-
-import com.practice.model.BaseEntity;
+package com.xiangchi.model;
 
 public class User extends BaseEntity {
     private String name;

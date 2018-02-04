@@ -1,9 +1,9 @@
-package com.practice.mapper;
+package com.xiangchi.mapper;
 
 import java.util.List;
 
-import com.practice.model.User;
-import com.practice.util.MyMapper;
+import com.xiangchi.model.User;
+import com.xiangchi.util.MyMapper;
 
 public interface UserMapper extends MyMapper<User> {
 	public List<User> findUser(User user);

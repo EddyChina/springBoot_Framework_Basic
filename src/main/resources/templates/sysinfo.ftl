@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<!-- url: /sysinfo/{info}/ -->
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Page Not Found</title>
+    <title>Server Info</title>
     <style>
         ::-moz-selection {
             background: #b3d4fc;
@@ -26,7 +27,7 @@
         }
 
         body {
-            max-width: 550px;
+            max-width: 1550px;
             _width: 550px;
             padding: 30px 20px 50px;
             border: 1px solid #b3b3b3;
@@ -59,23 +60,23 @@
             margin: 1em 0;
         }
 
-        .container {
-            max-width: 500px;
-            _width: 500px;
-            margin: 0 auto;
-        }
-
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>404 Not found <span>:(</span></h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
-    <p>It looks like this was the result of either:</p>
-    <ul>
-        <li>a mistyped address</li>
-        <li>an out-of-date link</li>
-    </ul>
-</div>
+    <#if infoMap?exists>
+        <table border="1" align="center">
+            <thead align="center"><h1>System Information</h1></thead>
+            <#list infoMap?keys as key>
+                <#if !key?contains("class.path")>
+                    <tr>
+                        <td align="left">${key} = ${infoMap[key]}</td>
+                    </tr>
+                </#if>
+            </#list>
+        </table>
+    </#if>
+
+<h1></h1>
+
 </body>
 </html>
