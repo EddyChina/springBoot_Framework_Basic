@@ -1,4 +1,4 @@
-package com.practice;
+package com.xiangchi;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

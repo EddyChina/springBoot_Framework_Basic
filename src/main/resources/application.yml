@@ -1,6 +1,8 @@
 server:
     port: 34567
-    context-path:
+    context-path: acb
+
+    ip:34567/acb/school/ucsc
 
 logging:
     level:

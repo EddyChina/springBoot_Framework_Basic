@@ -5,10 +5,7 @@ import com.xiangchi.model.User;
 import com.xiangchi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -32,7 +29,7 @@ public class UserController {
      * @param id: the id of this user
      * @return
      */
-    @RequestMapping(value = "/view/{id}")
+    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable Integer id){
     	User user = new User();
         user.setId(id);
@@ -73,10 +70,10 @@ public class UserController {
     
     @RequestMapping(value="/update/{id}")
     public void updateUser(@PathVariable Integer id,@RequestParam String name){
-    	User user=new User();
-    	user.setId(id);
-    	user.setName(name);
-    	userService.updateUser(user);
+
+        User user2 = this.userService.getUserById(id);
+
+    	userService.updateUser(user2);
     }
 
 }
